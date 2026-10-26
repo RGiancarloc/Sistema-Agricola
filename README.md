@@ -1,3 +1,4 @@
+HEAD
 # Gemelo digital de paisajes agricolas y redes de polinizadores
 
 Plataforma web que modela espacio-temporalmente el paisaje agricola y la red
@@ -221,3 +222,6 @@ optimizacion (factibilidad de presupuesto/area), indicadores e integracion API
   linealizacion (MILP), indicado en el campo `nota` de la respuesta.
 - En desarrollo se usa SQLite (geometrias como WKT); en PostgreSQL/PostGIS las
   mismas columnas se materializan como tipo `geometry(...,4326)` con indice GIST.
+=======
+# Sistema-Agricola
+ 2164e56a467ab359536c52e399812c5265bcf593
