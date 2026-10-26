@@ -1,0 +1,51 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: agricola_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-agricola}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-agricola}
+      POSTGRES_DB: ${POSTGRES_DB:-agricola}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./docker/initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-agricola} -d ${POSTGRES_DB:-agricola}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: agricola_backend
+    environment:
+      SA_DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-agricola}:${POSTGRES_PASSWORD:-agricola}@db:5432/${POSTGRES_DB:-agricola}
+      SA_SEED: ${SA_SEED:-42}
+      SA_CORS_ORIGINS: http://localhost:3000
+      SA_CONFIG_DIR: /config
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: agricola_frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000/api/v1
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

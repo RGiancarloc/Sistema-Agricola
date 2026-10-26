@@ -1,0 +1,35 @@
+# ===========================================================================
+# Escenarios climaticos (linea base y proyecciones SSP).
+# Delta de temperatura (C) por decada y delta de precipitacion (%).
+# Los valores por decada se interpolan linealmente anio a anio.
+# ===========================================================================
+escenarios:
+  linea_base:
+    nombre: "Linea base (historico)"
+    ssp: "historico"
+    descripcion: "Continuidad de las condiciones 2015-2024."
+    delta_temp_c_por_decada: 0.0
+    delta_precip_pct_por_decada: 0.0
+    delta_temp_anual: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
+    delta_precip_anual_pct: [0, 0, 0, 0, 0, 0]
+
+  ssp245:
+    nombre: "SSP2-4.5 (moderado)"
+    ssp: "SSP2-4.5"
+    descripcion: "Trayectoria socioeconomica intermedia, estabilizacion de emisiones."
+    delta_temp_c_por_decada: 0.24
+    delta_precip_pct_por_decada: -2.5
+    delta_temp_anual: [0.0, 0.2, 0.5, 0.8, 1.1, 1.4]
+    delta_precip_anual_pct: [0.0, -2.0, -5.0, -8.0, -11.0, -14.0]
+
+  ssp585:
+    nombre: "SSP5-8.5 (severo)"
+    ssp: "SSP5-8.5"
+    descripcion: "Escenario de altas emisiones, calentamiento acelerado."
+    delta_temp_c_por_decada: 0.48
+    delta_precip_pct_por_decada: -5.0
+    delta_temp_anual: [0.0, 0.5, 1.1, 1.8, 2.5, 3.0]
+    delta_precip_anual_pct: [0.0, -4.0, -10.0, -16.0, -22.0, -26.0]
+
+# Anios en que se anclan los deltas anteriores (interpolacion lineal).
+anclas_delta: [2025, 2030, 2035, 2040, 2045, 2050]

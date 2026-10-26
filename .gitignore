@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Env / secrets
+.env
+*.env.local
+
+# Data / artifacts
+data/*.db
+data/*.sqlite
+data/processed/*
+data/raw/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+backend/*.db
+reports/
+*.pdf
+!README.pdf
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+frontend/.next/
+frontend/node_modules/
+npm-debug.log*
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Docker
+*.pid

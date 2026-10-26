@@ -1,0 +1,59 @@
+# ===========================================================================
+# Parametros por cultivo (parametrizables).
+# Valores calibrados a ordenes de magnitud reportados para la costa norte
+# del Peru; son parametros de trabajo, no cifras oficiales.
+# ===========================================================================
+cultivos:
+  palto:
+    nombre_comun: "Palto (aguacate Hass)"
+    cientifico: "Persea americana"
+    rendimiento_base_t_ha: 14.0          # serie oficial MIDAGRI La Libertad: 10.9 - 15.2 t/ha
+    precio_usd_t: 1450
+    dependencia_polinizadores_silvestres: 0.35
+    dependencia_abeja_mielifera: 0.45
+    sensibilidad_deficit_polinizacion: 0.60
+    temp_optima_c: 22.0
+    tolerancia_termica_c: 8.0
+    grados_dia_base_c: 10.0
+    agua_requerida_mm: 900
+    ndvi_pico_mes: 4
+    fenologia:
+      floracion_meses: [6, 7, 8]
+      cuaje_meses: [9, 10]
+      cosecha_meses: [3, 4, 5]
+
+  arandano:
+    nombre_comun: "Arandano"
+    cientifico: "Vaccinium corymbosum"
+    rendimiento_base_t_ha: 14.5          # serie oficial MIDAGRI La Libertad: 7.5 - 16.2 t/ha
+    precio_usd_t: 3600
+    dependencia_polinizadores_silvestres: 0.30
+    dependencia_abeja_mielifera: 0.55
+    sensibilidad_deficit_polinizacion: 0.75
+    temp_optima_c: 20.0
+    tolerancia_termica_c: 7.0
+    grados_dia_base_c: 7.0
+    agua_requerida_mm: 1100
+    ndvi_pico_mes: 10
+    fenologia:
+      floracion_meses: [8, 9, 10]
+      cuaje_meses: [11, 12]
+      cosecha_meses: [6, 7, 8]
+
+  esparrago:
+    nombre_comun: "Esparrago verde"
+    cientifico: "Asparagus officinalis"
+    rendimiento_base_t_ha: 12.0          # serie oficial MIDAGRI La Libertad: 10.9 - 13.1 t/ha
+    precio_usd_t: 2650
+    dependencia_polinizadores_silvestres: 0.15
+    dependencia_abeja_mielifera: 0.25
+    sensibilidad_deficit_polinizacion: 0.30
+    temp_optima_c: 24.0
+    tolerancia_termica_c: 10.0
+    grados_dia_base_c: 10.0
+    agua_requerida_mm: 800
+    ndvi_pico_mes: 2
+    fenologia:
+      floracion_meses: [9, 10]
+      cuaje_meses: [11, 12, 1]
+      cosecha_meses: [7, 8, 9]

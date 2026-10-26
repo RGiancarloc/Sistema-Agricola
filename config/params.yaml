@@ -1,0 +1,68 @@
+# ===========================================================================
+# Parametros globales del gemelo digital.
+# Reproducibilidad: toda la aleatoriedad deriva de `seed`.
+# ===========================================================================
+project:
+  name: "Gemelo digital de paisajes agricolas y redes de polinizadores"
+  region: "Valle de Moche y Chavimochic (La Libertad, Peru)"
+  crs: "EPSG:4326"
+
+# Semilla maestra (fija) para generacion sintetica y simulaciones.
+seed: 42
+
+# Bounding box de la zona de estudio (grados decimales, WGS84).
+# Cubre Chavimochic (Viru) -> valle de Moche (Trujillo).
+region_bbox:
+  min_lon: -79.05
+  max_lon: -78.50
+  min_lat: -8.65
+  max_lat: -7.98
+
+# Numero de entidades sinteticas a generar.
+seed_data:
+  n_parcelas: 54
+  n_estaciones_clima: 4
+  n_especies_planta: 16
+  n_polinizadores: 26
+  n_habitats: 18
+  n_colmenas: 12
+  observaciones_por_par:
+    min: 4
+    max: 24
+
+# Ventana temporal historica y horizonte de proyeccion.
+simulation:
+  year_start: 2015
+  year_end: 2024
+  projection_end: 2050
+  step_months: 1
+  # Sensibilidad de la productividad a la polinizacion (deficit).
+  pollination_saturation: 0.85
+
+# Modelo de paisaje.
+landscape:
+  habitat_search_radius_m: 1500      # radio de busqueda de habitat semi-natural
+  connectivity_threshold_m: 1000     # umbral de conectividad entre parches
+  pollination_decay_m: 750           # distancia caracteristica de forrajeo
+  grid_cell_ha: 5.0                  # tamano de celda para metricas de paisaje
+
+# Optimizacion.
+optimization:
+  budget_usd: 250000
+  max_intervention_area_ha: 120
+  time_limit_s: 90
+  ga_abc:
+    population: 40        # tamano de la poblacion (abejas)
+    generations: 60       # iteraciones maximas
+    food_sources: 30      # fuentes de alimento (soluciones empleadas)
+    limit: 15             # intentos antes de abandonar una fuente
+    crossover_rate: 0.8
+    mutation_rate: 0.10
+    elite: 2              # individuos elitistas preservados
+
+# Servicios ecosistemicos: pesos del score agregado (deben sumar 1).
+ecosystem:
+  weights:
+    productividad: 0.40
+    polinizacion: 0.35
+    biodiversidad: 0.25

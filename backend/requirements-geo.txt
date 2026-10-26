@@ -1,0 +1,6 @@
+# Dependencias geoespaciales y de persistencia PostGIS
+shapely>=2.0
+geopandas>=1.0
+pyproj>=3.6
+pyogrio>=0.9
+psycopg2-binary>=2.9
